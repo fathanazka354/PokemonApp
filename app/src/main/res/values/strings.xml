@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">PokemonApp</string>
+    <string name="title">Title</string>
+    <string name="id">#001</string>
+    <string name="pokemon_picture">pokemon_picture</string>
+    <string name="informasi_umum">Informasi Umum</string>
+    <string name="nomor">Nomor</string>
+    <string name="nama">Nama</string>
+    <string name="types">Types</string>
+    <string name="classification">Classification</string>
+    <string name="resistant">Resistant</string>
+    <string name="evolution">Evolution</string>
+</resources>
