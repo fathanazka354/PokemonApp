@@ -27,7 +27,7 @@
             android:layout_marginStart="10dp"/>
 
         <ImageView
-            android:id="@+id/img_bank_sampah"
+            android:id="@+id/img_pokemon"
             android:layout_width="157dp"
             android:layout_height="127dp"
             android:layout_marginTop="20dp"
@@ -50,7 +50,7 @@
             android:textColor="@android:color/holo_red_dark"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/img_bank_sampah" />
+            app:layout_constraintTop_toBottomOf="@id/img_pokemon" />
 
 
         <TextView

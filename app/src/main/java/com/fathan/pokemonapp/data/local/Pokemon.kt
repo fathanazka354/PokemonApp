@@ -1,14 +1,19 @@
 package com.fathan.pokemonapp.data.local
 
-import retrofit2.http.Field
+import android.os.Parcelable
+import com.google.gson.annotations.SerializedName
+import kotlinx.parcelize.Parcelize
 
+@Parcelize
 data class Pokemon (
-    @Field("uuid")
+    @field:SerializedName("uuid")
     val uuid: String,
-    @Field("name")
+    @field:SerializedName("name")
     val name: String,
-    @Field("number")
+    @field:SerializedName("number")
     val number: String,
-    @Field("types")
-    val types: String,
-)
+    @field:SerializedName("types")
+    val types: List<Type>,
+    @field:SerializedName("avatar")
+    val avatar: String,
+): Parcelable

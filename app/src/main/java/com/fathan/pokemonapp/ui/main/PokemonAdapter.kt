@@ -3,18 +3,23 @@ package com.fathan.pokemonapp.ui.main
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.fathan.pokemonapp.data.local.Pokemon
 import com.fathan.pokemonapp.databinding.ItemPokemonBinding
 
-class PokemonAdapter: RecyclerView.Adapter<PokemonAdapter.ViewHolder>() {
-    private val listPokemon = ArrayList<Pokemon>()
+class PokemonAdapter(val listPokemon : List<Pokemon>): RecyclerView.Adapter<PokemonAdapter.ViewHolder>() {
     private lateinit var onItemClickCallback : OnItemClickCallback
-    class ViewHolder(private val binding: ItemPokemonBinding): RecyclerView.ViewHolder(binding.root) {
+    inner class ViewHolder(private val binding: ItemPokemonBinding): RecyclerView.ViewHolder(binding.root) {
         fun bind(pokemon: Pokemon){
-//            Glide.with(itemView)
-//                .load()
             binding.apply {
                 tvNamePokemon.text = pokemon.name
+                Glide.with(itemView)
+                    .load(pokemon.avatar)
+                    .into(imgPokemon)
+
+                root.setOnClickListener {
+                    onItemClickCallback.onItemClicked(data = pokemon)
+                }
             }
         }
     }
@@ -32,7 +37,7 @@ class PokemonAdapter: RecyclerView.Adapter<PokemonAdapter.ViewHolder>() {
         this.onItemClickCallback = onItemClickCallback
     }
     override fun getItemCount(): Int {
-        TODO("Not yet implemented")
+        return listPokemon.size
     }
 
 

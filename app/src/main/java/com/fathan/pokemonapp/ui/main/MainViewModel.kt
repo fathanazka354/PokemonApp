@@ -19,7 +19,7 @@ class MainViewModel:ViewModel() {
 
     fun getPokemon(){
         val pokemonList = ArrayList<Pokemon>()
-        val client = ApiConfig.getApiService().getDataPokemons()
+        val client = ApiConfig.getApiService().getDataPokemons(limit = 10, page = 1)
 
         _isLoading.value = true
         client.enqueue(object : Callback<PokemonResponse>{
@@ -30,6 +30,7 @@ class MainViewModel:ViewModel() {
                 val responseBody = response.body()
                 if (response.isSuccessful && responseBody != null){
                     Log.d("MainViewModel", "onResponse: $responseBody")
+                    _isLoading.value = false
                     listPokemon.postValue(responseBody?.data)
                     listPokemon.value = pokemonList
                 }else{
